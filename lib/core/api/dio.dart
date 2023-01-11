@@ -5,8 +5,9 @@ import 'package:flutter/foundation.dart';
 class AppDio with DioMixin implements Dio {
   AppDio._([BaseOptions? options]) {
     options = BaseOptions(
-      baseUrl: 'https://hsb-backend.onrender.com/api',
+      baseUrl: 'https://hsb-backend-app.onrender.com/api',
       contentType: 'application/json',
+      headers: {"Accept": "*/*"},
       connectTimeout: 10000,
       sendTimeout: 10000,
       receiveTimeout: 10000,
