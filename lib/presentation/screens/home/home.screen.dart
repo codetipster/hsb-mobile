@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:invoice_tracking_flutter/presentation/controllers/employee.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/date_time_extension.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -157,7 +158,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                     itemCount: data.length,
                     itemBuilder: (context, index) => ItemCard(
                       title: data[index].name,
-                      subTitle: data[index].createdAt!.toIso8601String(),
+                      subTitle: data[index].createdAt!.dateString(),
                       status: data[index].status,
                       file: data[index].image,
                     ),
@@ -183,7 +184,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                     itemCount: data.length,
                     itemBuilder: (context, index) => ItemCard(
                       title: data[index].name,
-                      subTitle: data[index].createdAt!.toIso8601String(),
+                      subTitle: data[index].createdAt!.dateString(),
                       status: '',
                       file: data[index].file,
                     ),
