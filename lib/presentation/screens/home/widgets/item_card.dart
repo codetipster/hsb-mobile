@@ -40,6 +40,7 @@ class ItemCard extends ConsumerWidget {
     final downloader = ref.watch(downloaderProvider(file));
 
     return ListTile(
+      onTap: () => ref.read(downloaderProvider(file).notifier).open(context),
       title: Text(title, style: context.textTheme.bodyLarge),
       subtitle: Padding(
         padding: const EdgeInsets.only(top: 8),
@@ -62,18 +63,9 @@ class ItemCard extends ConsumerWidget {
                 } else {
                   return InkWell(
                     child: Image.asset(AppConst.downloadIcon, width: 24),
-                    onTap: () async {
-                      final permissionReady = await checkPermission(
-                          platform: TargetPlatform.android);
-                      if (permissionReady) {
-                        final localPath = await prepareSaveDir(
-                            platform: TargetPlatform.android);
-                        // ignore: use_build_context_synchronously
-                        ref
-                            .read(downloaderProvider(file).notifier)
-                            .download(context,savePath: localPath);
-                      }
-                    },
+                    onTap: () => ref
+                        .read(downloaderProvider(file).notifier)
+                        .download(context),
                   );
                 }
               },

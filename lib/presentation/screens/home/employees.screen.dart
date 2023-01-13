@@ -49,8 +49,14 @@ class EmployeesScreen extends ConsumerWidget {
                   itemBuilder: (context, index) =>
                       EmployeeItemCard(data: data[index]),
                 ),
-                error: (error, stackTrace) =>
-                    AppError(title: error.toString(), flex: false),
+                error: (error, stackTrace) => AppError(
+                    title: error.toString(),
+                    onPressed: () {
+                      ref
+                          .read(employeeControllerProvider.notifier)
+                          .initialize();
+                    },
+                    flex: false),
                 loading: () => const AppCircularProgressIndicator(flex: false),
               ),
             ),

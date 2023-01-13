@@ -47,8 +47,12 @@ class InvoicesScreen extends ConsumerWidget {
                     file: data[index].image,
                   ),
                 ),
-                error: (error, stackTrace) =>
-                    AppError(title: error.toString(), flex: false),
+                error: (error, stackTrace) => AppError(
+                    title: error.toString(),
+                    onPressed: () {
+                      ref.read(invoiceControllerProvider.notifier).initialize();
+                    },
+                    flex: false),
                 loading: () => const AppCircularProgressIndicator(flex: false),
               ),
             ),

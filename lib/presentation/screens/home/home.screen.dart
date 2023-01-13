@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:invoice_tracking_flutter/presentation/controllers/downloder.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/employee.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/extensions/date_time_extension.dart';
 import 'package:sizer/sizer.dart';
@@ -33,15 +34,14 @@ class HomeScreenState extends ConsumerState<HomeScreen>
     with TickerProviderStateMixin {
   TabController? tabController;
   final _formKey = GlobalKey<FormBuilderState>();
-  late TargetPlatform? platform;
 
   @override
   void initState() {
     super.initState();
     if (Platform.isAndroid) {
-      platform = TargetPlatform.android;
+      platformState.value = TargetPlatform.android;
     } else {
-      platform = TargetPlatform.iOS;
+      platformState.value = TargetPlatform.iOS;
     }
     tabController = TabController(length: 3, vsync: this);
   }
@@ -61,6 +61,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                     name: _formKey.currentState!.value['name'],
                     image: ref.watch(imageControllerProvider).image!,
                   );
+              ref.read(imageControllerProvider.notifier).image = null;
               Navigator.of(context).pop();
             }
           },
@@ -163,8 +164,14 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                       file: data[index].image,
                     ),
                   ),
-                  error: (error, stackTrace) =>
-                      AppError(title: error.toString(), flex: false),
+                  error: (error, stackTrace) => AppError(
+                      title: error.toString(),
+                      onPressed: () {
+                        ref
+                            .read(invoiceControllerProvider.notifier)
+                            .initialize();
+                      },
+                      flex: false),
                   loading: () =>
                       const AppCircularProgressIndicator(flex: false),
                 ),
@@ -189,8 +196,14 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                       file: data[index].file,
                     ),
                   ),
-                  error: (error, stackTrace) =>
-                      AppError(title: error.toString(), flex: false),
+                  error: (error, stackTrace) => AppError(
+                      title: error.toString(),
+                      onPressed: () {
+                        ref
+                            .read(reportControllerProvider.notifier)
+                            .initialize();
+                      },
+                      flex: false),
                   loading: () =>
                       const AppCircularProgressIndicator(flex: false),
                 ),
@@ -211,8 +224,14 @@ class HomeScreenState extends ConsumerState<HomeScreen>
                   itemBuilder: (context, index) =>
                       EmployeeItemCard(data: data[index]),
                 ),
-                error: (error, stackTrace) =>
-                    AppError(title: error.toString(), flex: false),
+                error: (error, stackTrace) => AppError(
+                    title: error.toString(),
+                    onPressed: () {
+                      ref
+                          .read(employeeControllerProvider.notifier)
+                          .initialize();
+                    },
+                    flex: false),
                 loading: () => const AppCircularProgressIndicator(flex: false),
               )),
             ],

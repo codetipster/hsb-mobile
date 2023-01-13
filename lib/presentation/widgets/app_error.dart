@@ -4,6 +4,7 @@ import 'package:invoice_tracking_flutter/config/constants.dart';
 ///
 class AppError extends StatelessWidget {
   final bool flex;
+  final void Function()? onPressed;
 
   ///
   const AppError({
@@ -11,6 +12,7 @@ class AppError extends StatelessWidget {
     required this.title,
     this.description,
     this.flex = true,
+    this.onPressed,
   });
 
   /// Error title
@@ -32,7 +34,10 @@ class AppError extends StatelessWidget {
       children: [
         Text(title),
         kDefaultSpaceV,
-        if (description != null) Text(description!)
+        if (description != null) Text(description!),
+        IconButton(
+            onPressed: onPressed,
+            icon: const Icon(Icons.refresh_rounded, size:28))
       ],
     );
   }
