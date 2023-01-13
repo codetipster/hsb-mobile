@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "148590560527",
+    "project_id": "hsb-project-830fb",
+    "storage_bucket": "hsb-project-830fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:148590560527:android:a274d87a3a36a5db64aa7a",
+        "android_client_info": {
+          "package_name": "com.example.invoice_tracking_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "148590560527-krd6mfuhfgc7ad40iudeshkf79oj65ev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgns9opjSndb0y8ABYFTYrBxCEZFNFg9E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "148590560527-krd6mfuhfgc7ad40iudeshkf79oj65ev.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

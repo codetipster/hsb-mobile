@@ -13,6 +13,7 @@ class LocalDataSource {
   static const _onBoard = 'on_board';
   static const _isSignedInKey = 'is_signed_in';
   static const _userKey = 'user';
+  static const _deviceToken = 'device_token';
 
   final SharedPreferences _sharedPreference;
 
@@ -22,6 +23,7 @@ class LocalDataSource {
   bool get isSignedIn => _sharedPreference.getBool(_isSignedInKey) ?? false;
   bool get showOnBoard => _sharedPreference.getBool(_onBoard) ?? false;
   String get authToken => _sharedPreference.getString(_tokenKey) ?? '';
+  String get deviceToken => _sharedPreference.getString(_deviceToken) ?? '';
   UserEntity get user => UserEntity.fromJson(
       json.decode(_sharedPreference.getString(_userKey) ?? '{}'));
 
@@ -29,6 +31,11 @@ class LocalDataSource {
   /// Store token in device storage
   Future<void> storeAuthToken({required String authToken}) async {
     _sharedPreference.setString(_tokenKey, authToken);
+  }
+
+  /// Store token in device storage
+  Future<void> storeDeviceToken({required String deviceToken}) async {
+    _sharedPreference.setString(_deviceToken, deviceToken);
   }
 
   /// Store signed in state in device storage

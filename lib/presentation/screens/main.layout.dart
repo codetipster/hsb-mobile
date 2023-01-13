@@ -4,8 +4,6 @@ import 'package:invoice_tracking_flutter/presentation/screens/contact/contact_us
 import 'package:invoice_tracking_flutter/presentation/screens/home/home.screen.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/profile/setting.screen.dart';
 import 'package:invoice_tracking_flutter/presentation/widgets/bottom_navigation_bar.dart';
-import 'package:path/path.dart';
-
 class AppLayout extends ConsumerWidget {
   const AppLayout({Key? key}) : super(key: key);
   @override

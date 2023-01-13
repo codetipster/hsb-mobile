@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:invoice_tracking_flutter/presentation/controllers/downloder.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/employee.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/controllers/notification.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/extensions/date_time_extension.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,10 @@ class HomeScreenState extends ConsumerState<HomeScreen>
 
   @override
   void initState() {
+    ref
+        .read(notificationServiceProvider.notifier)
+        .updateUserTokenDevice(context);
+        
     super.initState();
     if (Platform.isAndroid) {
       platformState.value = TargetPlatform.android;

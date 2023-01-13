@@ -1,9 +1,8 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_tracking_flutter/core/api/dio.dart';
-import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/auth.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/controllers/notification.controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '/config/app.locale.dart';
 import '/config/app.theme.dart';
@@ -46,6 +45,9 @@ Future<void> initializeProviders(ProviderContainer container) async {
   // await container.read(localDataSourceProvider).clear();
   await container.read(authControllerProvider.notifier).initialize();
 
+  //? Notification Feature
+  await container.read(notificationServiceProvider.notifier).initialize();
+  
   //! Config
   // load theme configs before the app started
   await container.read(themeStateProvider).initialize();
