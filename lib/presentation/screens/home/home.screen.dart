@@ -1,28 +1,27 @@
 import 'dart:io';
 
+import 'package:invoice_tracking_flutter/config/app.router.dart';
+import 'package:invoice_tracking_flutter/config/constants.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/downloder.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/employee.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/controllers/image.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/controllers/invoice.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/notification.controller.dart';
+import 'package:invoice_tracking_flutter/presentation/controllers/report.controller.dart';
 import 'package:invoice_tracking_flutter/presentation/extensions/date_time_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/custom_appbar.dart';
+import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/employee_item_card.dart';
+import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/invoice_form.dart';
+import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/item_card.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_circular_progress_indicator.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_error.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/custom_scaffold.layout.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/image_pick.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-
-import '/config/app.router.dart';
-import '/config/constants.dart';
-import '/presentation/widgets/app_error.dart';
-import '/presentation/widgets/image_pick.dart';
-import '/presentation/extensions/ui_extension.dart';
-import '/presentation/controllers/image.controller.dart';
-import '/presentation/controllers/report.controller.dart';
-import '/presentation/screens/home/widgets/item_card.dart';
-import '/presentation/controllers/invoice.controller.dart';
-import '/presentation/widgets/custom_scaffold.layout.dart';
-import '/presentation/screens/home/widgets/invoice_form.dart';
-import '/presentation/screens/home/widgets/custom_appbar.dart';
-import '/presentation/screens/home/widgets/employee_item_card.dart';
-import '/presentation/widgets/app_circular_progress_indicator.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -41,7 +40,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
     ref
         .read(notificationServiceProvider.notifier)
         .updateUserTokenDevice(context);
-        
+
     super.initState();
     if (Platform.isAndroid) {
       platformState.value = TargetPlatform.android;
@@ -105,10 +104,9 @@ class HomeScreenState extends ConsumerState<HomeScreen>
           children: [
             Image.asset(AppConst.addIcon),
             kDefaultSpaceV,
-            Text('Upload your Invoice', style: context.textTheme.headline6),
+            Text(context.tr.uploadInvoice, style: context.textTheme.headline6),
             SizedBox(height: 1.h),
-            Text(
-                'You can upload an invoice by importing or\nscanning with your camera',
+            Text(context.tr.uploadInvoiceMsg,
                 textAlign: TextAlign.center,
                 style: context.textTheme.subtitle2),
           ],
@@ -131,10 +129,10 @@ class HomeScreenState extends ConsumerState<HomeScreen>
         labelColor: context.colorScheme.onBackground,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorWeight: 3,
-        tabs: const [
-          Tab(text: 'Invoices'),
-          Tab(text: 'Reports'),
-          Tab(text: 'Employees'),
+        tabs: [
+          Tab(text: context.tr.invoices),
+          Tab(text: context.tr.reports),
+          Tab(text: context.tr.employees),
         ],
       ),
     );
@@ -155,7 +153,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(
-                child: const Text('See all'),
+                child: Text(context.tr.seeAll),
                 onPressed: () => context.go.pushNamed(RouteName.invoices),
               ),
               Expanded(
@@ -187,7 +185,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(
-                child: const Text('See all'),
+                child: Text(context.tr.seeAll),
                 onPressed: () => context.go.pushNamed(RouteName.reports),
               ),
               Expanded(
@@ -219,7 +217,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               TextButton(
-                child: const Text('See all'),
+                child: Text(context.tr.seeAll),
                 onPressed: () => context.go.pushNamed(RouteName.employees),
               ),
               Expanded(

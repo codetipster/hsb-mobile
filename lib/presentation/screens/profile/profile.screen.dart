@@ -29,7 +29,7 @@ class ProfileScreen extends ConsumerWidget {
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Edit profile', style: context.textTheme.headline6),
+        title: Text(context.tr.editProfile, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -56,7 +56,7 @@ class ProfileScreen extends ConsumerWidget {
     return FormBuilder(
       key: _formKey,
       initialValue: localDataSource.user.toJson(),
-      child: profileFields,
+      child: profileFields(context),
     );
   }
 
@@ -81,7 +81,7 @@ class ProfileScreen extends ConsumerWidget {
         ),
       ),
       child: ref.watch(profileControllerProvider).when(
-            data: (data) => const Text('Save'),
+            data: (data) => Text(context.tr.save),
             error: (e, s) => null,
             loading: () => const CircularProgressIndicator(),
           ),

@@ -29,7 +29,7 @@ class EditEmployeeScreen extends ConsumerWidget {
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Edit Employee', style: context.textTheme.headline6),
+        title: Text(context.tr.editEmployee, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -49,7 +49,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                     // keyboardType: keyboardType,
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(
-                          errorText: "Field is required!"),
+                          errorText: context.tr.fieldRequiredMsg),
                     ]),
                     maxLines: 4,
                     decoration: const InputDecoration(
@@ -64,7 +64,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'name',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Name',
@@ -76,7 +76,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'firstName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Vorname',
@@ -88,7 +88,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'birthName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsname',
@@ -100,7 +100,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'birthDate',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsdatum',
@@ -112,7 +112,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'birthPlace',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsort',
@@ -124,7 +124,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'nationality',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Staatsangehörigkeit',
@@ -136,7 +136,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'homeNumber',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Straße/ Hausnummer',
@@ -148,7 +148,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'postalCode',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Postleitzahl/ Ort',
@@ -160,7 +160,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'jobTitle',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Berufsbezeichnung',
@@ -172,7 +172,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'healthInsurance',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Krankenkasse',
@@ -184,7 +184,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'iban',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'IBAN',
@@ -196,7 +196,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'bankName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Bankname',
@@ -208,7 +208,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'salary',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Gehalt (Brutto)',
@@ -220,7 +220,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'employmentType',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Beschäftigungsverhältnis',
@@ -232,7 +232,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'beginning',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Beginn',
@@ -245,7 +245,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'ort',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   hintText: 'Ort, Datum: .....................................',
@@ -259,7 +259,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                 name: 'unt',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   hintText:
@@ -288,7 +288,7 @@ class EditEmployeeScreen extends ConsumerWidget {
                   shape: RoundedRectangleBorder(borderRadius: kDefaultRaduis),
                 ),
                 child: employeeController.when(
-                  data: (data) => Text('Save'),
+                  data: (data) => Text(context.tr.save),
                   error: (e, s) => null,
                   loading: () => const CircularProgressIndicator(),
                 ),

@@ -11,7 +11,7 @@ void invoiceFormDialog(
     builder: (BuildContext context) {
       return AlertDialog(
         backgroundColor: context.theme.scaffoldBackgroundColor,
-        title: const Text('Title of Invoice'),
+        title: Text(context.tr.invoiceTitle),
         actions: [
           ElevatedButton(
             onPressed: () {
@@ -21,7 +21,7 @@ void invoiceFormDialog(
                 elevation: 0,
                 backgroundColor: context.theme.scaffoldBackgroundColor),
             child: Text(
-              'cancel',
+              context.tr.cancel,
               style: context.textTheme.button!.copyWith(
                 color: context.colorScheme.secondary,
               ),
@@ -32,7 +32,7 @@ void invoiceFormDialog(
         content: FormBuilder(
           key: formKey,
           child: customTextField(
-              label: 'Invoice Name',
+              label: context.tr.invoiceName,
               name: 'name',
               padding: EdgeInsets.zero,
               isRequired: true,

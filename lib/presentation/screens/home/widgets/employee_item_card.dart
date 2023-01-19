@@ -20,9 +20,9 @@ class EmployeeItemCard extends StatelessWidget {
         child: Image.asset(AppConst.dotsIcon),
         onSelected: (item) => onSelected(context, item as int),
         itemBuilder: (context) => [
-          const PopupMenuItem<int>(
+          PopupMenuItem<int>(
             value: 0,
-            child: Text('Edit'),
+            child: Text(context.tr.edit),
           ),
         ],
       ),

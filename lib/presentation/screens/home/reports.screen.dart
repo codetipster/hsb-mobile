@@ -6,10 +6,9 @@ import 'package:invoice_tracking_flutter/presentation/extensions/date_time_exten
 import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/custom_appbar.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/item_card.dart';
-
-import '../../widgets/app_circular_progress_indicator.dart';
-import '../../widgets/app_error.dart';
-import '../../widgets/custom_scaffold.layout.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_circular_progress_indicator.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_error.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/custom_scaffold.layout.dart';
 
 class ReportsScreen extends ConsumerWidget {
   const ReportsScreen({super.key});
@@ -32,7 +31,7 @@ class ReportsScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('All Reports', style: context.textTheme.headline6),
+                Text(context.tr.allReports, style: context.textTheme.headline6),
               ],
             ),
             kDefaultSpaceV,

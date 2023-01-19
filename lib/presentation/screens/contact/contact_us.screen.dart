@@ -16,7 +16,7 @@ class ContactUs extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('Contact Us', style: context.textTheme.headline6),
+        title: Text(context.tr.contactUs, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -34,7 +34,7 @@ class ContactUs extends StatelessWidget {
             ),
             kDefaultSpaceV,
             Text(
-              'Having any question? We are ready to help',
+              context.tr.contactUsMsg,
               style: context.textTheme.headline5
                   ?.copyWith(fontWeight: FontWeight.bold),
             ),
@@ -55,20 +55,20 @@ class ContactUs extends StatelessWidget {
         child: Column(
           children: [
             customTextField(
-              label: 'Email',
+              label: context.tr.email,
               name: 'email',
               padding: EdgeInsets.zero,
               filled: false,
             ),
             customTextField(
-              label: 'Phone number',
+              label: context.tr.phoneNumber,
               name: 'phoneNumber',
               padding: EdgeInsets.zero,
               filled: false,
             ),
             kDefaultSpaceV,
             customTextField(
-              label: 'Name',
+              label: context.tr.name,
               name: 'name',
               padding: EdgeInsets.zero,
               filled: true,
@@ -76,7 +76,7 @@ class ContactUs extends StatelessWidget {
             ),
             kDefaultSpaceV,
             customTextField(
-              label: 'Email Address',
+              label: context.tr.email,
               name: 'emailAddress',
               padding: EdgeInsets.zero,
               filled: true,
@@ -87,11 +87,11 @@ class ContactUs extends StatelessWidget {
               name: 'message',
               // keyboardType: keyboardType,
               validator: FormBuilderValidators.compose([
-                FormBuilderValidators.required(errorText: "Field is required!"),
+                FormBuilderValidators.required(errorText: context.tr.fieldRequiredMsg),
               ]),
               maxLines: 4,
-              decoration: const InputDecoration(
-                labelText: 'Message',
+              decoration: InputDecoration(
+                labelText: context.tr.message,
                 floatingLabelBehavior: FloatingLabelBehavior.always,
               ),
             ),
@@ -105,7 +105,7 @@ class ContactUs extends StatelessWidget {
                 fixedSize: Size(double.maxFinite, 8.h),
                 shape: RoundedRectangleBorder(borderRadius: kDefaultRaduis),
               ),
-              child: Text('Submit message'),
+              child: Text(context.tr.submitMsg),
             ),
             kDefaultSpaceV,
           ],

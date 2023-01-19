@@ -1,12 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_tracking_flutter/config/app.router.dart';
+import 'package:invoice_tracking_flutter/config/constants.dart';
 import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-
-import '/config/constants.dart';
-import '/presentation/extensions/ui_extension.dart';
 
 List<PageViewModel> pages(BuildContext context, WidgetRef ref) {
   return [

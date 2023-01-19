@@ -1,13 +1,12 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_tracking_flutter/config/app.router.dart';
+import 'package:invoice_tracking_flutter/config/constants.dart';
+import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/date_time_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/image_network.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
-
-import '/config/constants.dart';
-import '../../../widgets/image_network.dart';
-import '/presentation/extensions/ui_extension.dart';
-import '/data/datasources/local/local.datasource.dart';
-import '/presentation/extensions/date_time_extension.dart';
 
 AppBar customAppBar(BuildContext context, WidgetRef ref,
     {bool showBottom = false}) {
@@ -39,7 +38,7 @@ AppBar customAppBar(BuildContext context, WidgetRef ref,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Hi, ${localDataSource.user.firstName}',
+                    '${context.tr.hi}, ${localDataSource.user.firstName}',
                     style: context.textTheme.headline5
                         ?.copyWith(fontWeight: FontWeight.w400),
                   ),

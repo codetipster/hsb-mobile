@@ -1,10 +1,9 @@
+import 'package:invoice_tracking_flutter/config/constants.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/auth/widgets/custom_auth_Scaffold_layout.dart';
+import 'package:invoice_tracking_flutter/presentation/screens/auth/widgets/signin_form.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
-
-import '/config/constants.dart';
-import '/presentation/extensions/ui_extension.dart';
-import '/presentation/screens/auth/widgets/signin_form.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({Key? key}) : super(key: key);

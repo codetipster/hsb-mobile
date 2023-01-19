@@ -1,9 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:invoice_tracking_flutter/config/app.service.dart';
 import 'package:invoice_tracking_flutter/config/logger.service.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'config/app.service.dart' as providers;
+// import 'config/app.service.dart' as ;
 
 /// Initializes `services` and `dependencies` before the start of the application
 Future<ProviderContainer> bootstrap() async {
@@ -22,7 +23,7 @@ Future<ProviderContainer> bootstrap() async {
     observers: [Logger()],
   );
   // Initialize all providers
-  await providers.initializeProviders(container);
+  await initializeProviders(container);
 
   return container;
 }

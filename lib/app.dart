@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_tracking_flutter/config/app.router.dart';
+import 'package:invoice_tracking_flutter/config/app.service.dart';
 import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource.dart';
+import 'package:invoice_tracking_flutter/l10n/app_localizations.dart';
 import 'package:sizer/sizer.dart';
-
-import '/l10n/app_localizations.dart';
-import '/config/app.service.dart';
 
 class InvoiceTrackingApp extends ConsumerStatefulWidget {
   const InvoiceTrackingApp({super.key});
@@ -53,7 +52,6 @@ class InvoiceTrackingAppState extends ConsumerState<InvoiceTrackingApp>
   Widget build(BuildContext context) {
     final themeState = ref.watch(themeStateProvider);
     final localeState = ref.watch(localeStateProvider);
-    final localDataSource = ref.watch(localDataSourceProvider);
 
     return Sizer(
       builder: (context, orientation, deviceType) => MaterialApp.router(

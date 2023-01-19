@@ -6,10 +6,9 @@ import 'package:invoice_tracking_flutter/presentation/controllers/employee.contr
 import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/custom_appbar.dart';
 import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/employee_item_card.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_circular_progress_indicator.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/app_error.dart';
 import 'package:invoice_tracking_flutter/presentation/widgets/custom_scaffold.layout.dart';
-
-import '../../widgets/app_circular_progress_indicator.dart';
-import '../../widgets/app_error.dart';
 
 class EmployeesScreen extends ConsumerWidget {
   const EmployeesScreen({super.key});
@@ -38,7 +37,8 @@ class EmployeesScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('All Employees', style: context.textTheme.headline6),
+                Text(context.tr.allEmployees,
+                    style: context.textTheme.headline6),
               ],
             ),
             kDefaultSpaceV,

@@ -8,8 +8,8 @@ import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/custo
 import 'package:invoice_tracking_flutter/presentation/screens/home/widgets/item_card.dart';
 import 'package:invoice_tracking_flutter/presentation/widgets/app_circular_progress_indicator.dart';
 import 'package:invoice_tracking_flutter/presentation/widgets/app_error.dart';
+import 'package:invoice_tracking_flutter/presentation/widgets/custom_scaffold.layout.dart';
 
-import '../../widgets/custom_scaffold.layout.dart';
 
 class InvoicesScreen extends ConsumerWidget {
   const InvoicesScreen({super.key});
@@ -32,7 +32,7 @@ class InvoicesScreen extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('All Invoices', style: context.textTheme.headline6),
+                Text(context.tr.allInvoices, style: context.textTheme.headline6),
               ],
             ),
             kDefaultSpaceV,

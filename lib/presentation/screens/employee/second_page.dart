@@ -30,7 +30,7 @@ class SecondPage extends StatelessWidget {
                 name: 'iban',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'IBAN',
@@ -42,7 +42,7 @@ class SecondPage extends StatelessWidget {
                 name: 'bankName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Bankname',
@@ -54,7 +54,7 @@ class SecondPage extends StatelessWidget {
                 name: 'salary',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Gehalt (Brutto)',
@@ -66,7 +66,7 @@ class SecondPage extends StatelessWidget {
                 name: 'employmentType',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Beschäftigungsverhältnis',
@@ -78,7 +78,7 @@ class SecondPage extends StatelessWidget {
                 name: 'beginning',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Beginn',

@@ -34,7 +34,7 @@ class AddEmployeeScreen extends ConsumerWidget {
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: Text('Add New Employee', style: context.textTheme.headline6),
+        title: Text(context.tr.addEmployee, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),

@@ -10,12 +10,14 @@ Widget customTextField({
   bool filled = true,
   TextInputType? keyboardType = TextInputType.name,
   bool isRequired = true,
+  bool enabled = true,
   List<String? Function(String?)>? validators,
 }) {
   return Padding(
     padding: padding ?? EdgeInsets.only(bottom: kDefaultPaddingV),
     child: FormBuilderTextField(
       name: name,
+      enabled: enabled,
       keyboardType: keyboardType,
       validator: FormBuilderValidators.compose([
         if (isRequired)

@@ -47,7 +47,7 @@ class ThirdPage extends ConsumerWidget {
                 name: 'ort',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   hintText: 'Ort, Datum: .....................................',
@@ -61,7 +61,7 @@ class ThirdPage extends ConsumerWidget {
                 name: 'unt',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   hintText:
@@ -77,7 +77,7 @@ class ThirdPage extends ConsumerWidget {
                 title: Text('Test'),
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
               ),
               kDefaultSpaceV,

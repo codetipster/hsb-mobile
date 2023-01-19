@@ -51,7 +51,7 @@ class ItemCard extends ConsumerWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            if (itemStatus != ItemStatus.none) _buildStatusCard(),
+            if (itemStatus != ItemStatus.none) _buildStatusCard(context),
             kDefaultSpaceH,
             downloader.maybeWhen(
               orElse: () {
@@ -76,7 +76,7 @@ class ItemCard extends ConsumerWidget {
     );
   }
 
-  Widget _buildStatusCard() {
+  Widget _buildStatusCard(BuildContext context) {
     switch (itemStatus) {
       case ItemStatus.inreview:
         return Container(
@@ -85,8 +85,8 @@ class ItemCard extends ConsumerWidget {
             color: const Color.fromRGBO(242, 123, 13, 0.15),
             borderRadius: BorderRadius.circular(1.6.w),
           ),
-          child: const Text(
-            'INREVIEW',
+          child: Text(
+            context.tr.inreview,
             style: TextStyle(color: Color(0xffF27B0D)),
           ),
         );
@@ -97,8 +97,8 @@ class ItemCard extends ConsumerWidget {
             color: const Color.fromRGBO(112, 236, 186, 0.15),
             borderRadius: BorderRadius.circular(1.6.w),
           ),
-          child: const Text(
-            'COMPLETED',
+          child: Text(
+            context.tr.completed,
             style: TextStyle(color: Color(0xff008751)),
           ),
         );
@@ -109,8 +109,8 @@ class ItemCard extends ConsumerWidget {
             color: const Color.fromRGBO(255, 235, 236, 1),
             borderRadius: BorderRadius.circular(1.6.w),
           ),
-          child: const Text(
-            'INCOMPLETE',
+          child: Text(
+            context.tr.incomplete,
             style: TextStyle(color: Color.fromRGBO(146, 3, 4, 1)),
           ),
         );

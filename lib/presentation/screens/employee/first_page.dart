@@ -1,5 +1,6 @@
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:invoice_tracking_flutter/config/constants.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -29,7 +30,7 @@ class FirstPage extends StatelessWidget {
                     // keyboardType: keyboardType,
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(
-                          errorText: "Field is required!"),
+                          errorText: context.tr.fieldRequiredMsg),
                     ]),
                     maxLines: 4,
                     decoration: const InputDecoration(
@@ -44,7 +45,7 @@ class FirstPage extends StatelessWidget {
                 name: 'name',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Name',
@@ -56,7 +57,7 @@ class FirstPage extends StatelessWidget {
                 name: 'firstName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Vorname',
@@ -68,7 +69,7 @@ class FirstPage extends StatelessWidget {
                 name: 'birthName',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsname',
@@ -80,7 +81,7 @@ class FirstPage extends StatelessWidget {
                 name: 'birthDate',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsdatum',
@@ -92,7 +93,7 @@ class FirstPage extends StatelessWidget {
                 name: 'birthPlace',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Geburtsort',
@@ -104,7 +105,7 @@ class FirstPage extends StatelessWidget {
                 name: 'nationality',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Staatsangehörigkeit',
@@ -116,7 +117,7 @@ class FirstPage extends StatelessWidget {
                 name: 'homeNumber',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Straße/ Hausnummer',
@@ -128,7 +129,7 @@ class FirstPage extends StatelessWidget {
                 name: 'postalCode',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Postleitzahl/ Ort',
@@ -140,7 +141,7 @@ class FirstPage extends StatelessWidget {
                 name: 'jobTitle',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Berufsbezeichnung',
@@ -152,7 +153,7 @@ class FirstPage extends StatelessWidget {
                 name: 'healthInsurance',
                 validator: FormBuilderValidators.compose([
                   FormBuilderValidators.required(
-                      errorText: "Field is required!"),
+                      errorText: context.tr.fieldRequiredMsg),
                 ]),
                 decoration: const InputDecoration(
                   labelText: 'Krankenkasse',

@@ -20,7 +20,7 @@ class SettingScreen extends ConsumerWidget {
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: false,
-        title: Text('Settings', style: context.textTheme.headline6),
+        title: Text(context.tr.settings, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -42,8 +42,8 @@ class SettingScreen extends ConsumerWidget {
             onTap: () => context.go.pushNamed(RouteName.profile),
           ),
           SettingButton(
-            title: 'Change language',
-            subTitle: 'Toggle between muiltple languages',
+            title: context.tr.changeLanguage,
+            subTitle: context.tr.changeLanguageMsg,
             onTap: () => context.go.pushNamed(RouteName.language),
           ),
           Card(
@@ -53,8 +53,9 @@ class SettingScreen extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: FormBuilderSwitch(
                 name: 'notification',
+                initialValue: true,
                 title: Text(
-                  'Notification',
+                  context.tr.notification,
                   style: context.textTheme.bodyLarge
                       ?.copyWith(fontWeight: FontWeight.w500),
                 ),
@@ -72,14 +73,14 @@ class SettingScreen extends ConsumerWidget {
               child: FormBuilderSwitch(
                 name: 'logOut',
                 title: Text(
-                  'Log out',
+                  context.tr.logout,
                   style: context.textTheme.bodyLarge
                       ?.copyWith(fontWeight: FontWeight.w500),
                 ),
                 onChanged: (v) {
                   yesNoDialog(
                     context,
-                    content: 'Are you sure you want to logout',
+                    content: context.tr.logoutMsg,
                     onConfirm: () {
                       // ref.read()
                       ref.read(localDataSourceProvider).clear();

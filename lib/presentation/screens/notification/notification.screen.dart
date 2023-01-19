@@ -11,12 +11,13 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         iconTheme: context.theme.iconTheme.copyWith(color: Colors.black),
-        title: Text('Notifications', style: context.textTheme.headline6),
+        title:
+            Text(context.tr.notification, style: context.textTheme.headline6),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       isScrollable: false,
-      body: const Center(child: Text('No notifications yet')),
+      body: Center(child: Text(context.tr.noNotificationMsg)),
     );
   }
 }

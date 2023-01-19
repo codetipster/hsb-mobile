@@ -7,12 +7,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:invoice_tracking_flutter/config/app.service.dart';
 import 'package:invoice_tracking_flutter/core/api/result.entity.dart';
+import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource.dart';
 import 'package:invoice_tracking_flutter/data/entities/employee.entity.dart';
 import 'package:invoice_tracking_flutter/data/entities/invoice.entity.dart';
 import 'package:invoice_tracking_flutter/data/entities/report.entity.dart';
 import 'package:invoice_tracking_flutter/data/entities/user.entity.dart';
 
-import '../local/local.datasource.dart';
 
 const String SIGNIN = '/client/login';
 const String PROFILE = '/client/profile';
