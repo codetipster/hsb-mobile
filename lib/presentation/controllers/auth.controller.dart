@@ -6,6 +6,7 @@ import 'package:invoice_tracking_flutter/data/datasources/local/local.datasource
 import 'package:invoice_tracking_flutter/data/datasources/remote/remote.datasource.dart';
 import 'package:invoice_tracking_flutter/data/entities/user.entity.dart';
 import 'package:invoice_tracking_flutter/presentation/extensions/async_value_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 
 final authControllerProvider =
     StateNotifierProvider<AuthController, AsyncValue<UserEntity?>>((ref) {
@@ -36,6 +37,34 @@ class AuthController extends StateNotifier<AsyncValue<UserEntity?>> {
     result.when(success: (data) {
       state = const AsyncData(null);
       initialize();
+    }, failure: (failure) {
+      state = const AsyncData(null);
+      state.showFlushBarOnError(context,
+          error: AppFailure.getFailureMessage(failure));
+    });
+  }
+
+  Future<void> sendOtp(BuildContext context,
+      {required Map<String, dynamic>? formData}) async {
+    state = const AsyncLoading();
+    final result = await remoteDataSource.sendOTP(formData: formData!);
+    result.when(success: (data) {
+      state = const AsyncData(null);
+      context.go.pushNamed(RouteName.otpScreen);
+    }, failure: (failure) {
+      state = const AsyncData(null);
+      state.showFlushBarOnError(context,
+          error: AppFailure.getFailureMessage(failure));
+    });
+  }
+
+  Future<void> updatePassword(BuildContext context,
+      {required Map<String, dynamic>? formData}) async {
+    state = const AsyncLoading();
+    final result = await remoteDataSource.updatePassword(data: formData!);
+    result.when(success: (data) {
+      state = const AsyncData(null);
+      context.go.pushReplacementNamed(RouteName.signIn);
     }, failure: (failure) {
       state = const AsyncData(null);
       state.showFlushBarOnError(context,

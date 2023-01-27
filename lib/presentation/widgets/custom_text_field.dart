@@ -30,6 +30,7 @@ Widget customTextField({
         filled: filled,
         enabledBorder: const OutlineInputBorder(borderSide: BorderSide.none),
         floatingLabelBehavior: FloatingLabelBehavior.always,
+        disabledBorder: const OutlineInputBorder(borderSide: BorderSide.none),
       ),
     ),
   );

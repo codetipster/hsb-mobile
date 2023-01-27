@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
@@ -40,8 +42,19 @@ class MessageScreenState extends ConsumerState<MessageScreen>
       appBar: customAppBar(context, ref),
       body: Chat(
         messages: messages,
+        dateHeaderThreshold: 50000,
         onSendPressed: (p0) {
-          debugPrint(DateTime.now().millisecondsSinceEpoch.toString());
+          setState(() {
+            messages.insert(
+                0,
+                types.TextMessage(
+                  author: _user,
+                  id: (Random.secure().nextDouble() * 20000).toString(),
+                  text: p0.text,
+                  status: types.Status.sent,
+                  createdAt: DateTime.now().millisecondsSinceEpoch,
+                ));
+          });
         },
         theme: DefaultChatTheme(
           primaryColor: context.colorScheme.primary,
@@ -74,53 +87,4 @@ class MessageScreenState extends ConsumerState<MessageScreen>
   }
 }
 
-const data = [
-  {
-    "author": {
-      "firstName": "Accountant 1",
-      "id": "10",
-      "lastName": "Test"
-    },
-    "createdAt": 1655648404000,
-    "id": "1",
-    "status": "seen",
-    "text": "Great!",
-    "type": "text"
-  },
-  {
-    "author": {
-      "firstName": "Client1",
-      "id": "1",
-      "lastName": "Test"
-    },
-    "createdAt": 1655648401000,
-    "id": "2",
-    "status": "seen",
-    "text": "Oky I'll sent the rest of the invoice",
-    "type": "text"
-  },
-  {
-    "author": {
-      "firstName": "Client1",
-      "id": "1",
-      "lastName": "Test"
-    },
-    "createdAt": 1655648401000,
-    "id": "3",
-    "status": "seen",
-    "text": "Hi there!",
-    "type": "text"
-  },
-  {
-    "author": {
-      "firstName": "Accountant 1",
-      "id": "10",
-      "lastName": "Test"
-    },
-    "createdAt": 1655648404000,
-    "id": "4",
-    "status": "seen",
-    "text": "Hello, your last uploaded invoice need some data",
-    "type": "text"
-  },
-];
+const data = [];

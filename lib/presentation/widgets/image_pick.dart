@@ -22,7 +22,10 @@ showBottomImageSelector(BuildContext context, WidgetRef ref) {
           children: [
             InkWell(
               onTap: () async {
-                await ref.read(imageControllerProvider.notifier).pickImage();
+                if (Navigator.of(context).canPop()) {
+                  Navigator.pop(context);
+                  await ref.read(imageControllerProvider.notifier).pickImage();
+                }
               },
               child: SizedBox(
                 width: 20.w,
@@ -40,9 +43,12 @@ showBottomImageSelector(BuildContext context, WidgetRef ref) {
             ),
             InkWell(
               onTap: () async {
-                await ref
-                    .read(imageControllerProvider.notifier)
-                    .pickImage(imageSource: ImageSource.gallery);
+                if (Navigator.of(context).canPop()) {
+                  Navigator.pop(context);
+                  await ref
+                      .read(imageControllerProvider.notifier)
+                      .pickImage(imageSource: ImageSource.gallery);
+                }
               },
               child: SizedBox(
                 width: 20.w,

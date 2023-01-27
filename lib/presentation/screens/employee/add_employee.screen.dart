@@ -81,9 +81,9 @@ class AddEmployeeScreen extends ConsumerWidget {
         );
       case 2:
         return ThirdPage(
-          onPressed: (formKey) {
+          onPressed: (formKey) async {
             formData.addAll(formKey.currentState!.value);
-            ref
+            await ref
                 .read(employeeControllerProvider.notifier)
                 .createEmployee(context, data: formData);
             ref.read(stepsProvider.notifier).state = 0;

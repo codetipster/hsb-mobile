@@ -1,4 +1,5 @@
 // ignore: must_be_immutable
+import 'package:invoice_tracking_flutter/config/app.router.dart';
 import 'package:invoice_tracking_flutter/presentation/controllers/auth.controller.dart';
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
@@ -52,9 +53,13 @@ class SignInForm extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  context.tr.forgetPassword,
-                  style: context.textTheme.subtitle2,
+                GestureDetector(
+                  onTap: () =>
+                      context.go.pushNamed(RouteName.forgetPasswordScreen),
+                  child: Text(
+                    context.tr.forgetPassword,
+                    style: context.textTheme.subtitle2,
+                  ),
                 )
               ],
             ),

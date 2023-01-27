@@ -83,8 +83,8 @@ class SettingScreen extends ConsumerWidget {
                     content: context.tr.logoutMsg,
                     onConfirm: () {
                       // ref.read()
-                      ref.read(localDataSourceProvider).clear();
                       signInStateListenable.value = localDataSource.isSignedIn;
+                      ref.read(localDataSourceProvider).clear();
                     },
                   );
                 },

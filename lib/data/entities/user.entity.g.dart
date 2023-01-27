@@ -26,6 +26,7 @@ _$_UserEntity _$$_UserEntityFromJson(Map<String, dynamic> json) =>
       mobileNumber: json['mobileNumber'] as String,
       status: json['status'] as String,
       taxId: json['taxId'] as String?,
+      otp: json['otp'] as String?,
       notes: json['notes'] as String?,
       createdAt: json['createdAt'] == null
           ? null
@@ -63,6 +64,7 @@ Map<String, dynamic> _$$_UserEntityToJson(_$_UserEntity instance) {
   }
 
   writeNotNull('taxId', instance.taxId);
+  writeNotNull('otp', instance.otp);
   writeNotNull('notes', instance.notes);
   writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   writeNotNull('updatedAt', instance.updatedAt?.toIso8601String());

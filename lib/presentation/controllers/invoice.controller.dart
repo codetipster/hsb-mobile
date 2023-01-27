@@ -43,6 +43,7 @@ class InvoiceController extends StateNotifier<AsyncValue<List<InvoiceEntity>>> {
     required String name,
     required File image,
   }) async {
+    state = const AsyncLoading();
     final result =
         await remoteDataSource.uploadInvoice(name: name, image: image);
     result.when(

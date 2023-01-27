@@ -8,9 +8,9 @@ class AppDio with DioMixin implements Dio {
       baseUrl: 'https://hsb-backend.onrender.com/api',
       contentType: 'application/json',
       headers: {"Accept": "*/*"},
-      connectTimeout: 10000,
-      sendTimeout: 10000,
-      receiveTimeout: 10000,
+      connectTimeout: 30000,
+      sendTimeout: 50000,
+      receiveTimeout: 30000,
     );
 
     this.options = options;

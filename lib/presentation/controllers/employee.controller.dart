@@ -4,6 +4,7 @@ import 'package:invoice_tracking_flutter/core/errors/app.failure.dart';
 import 'package:invoice_tracking_flutter/data/datasources/remote/remote.datasource.dart';
 import 'package:invoice_tracking_flutter/data/entities/employee.entity.dart';
 import 'package:invoice_tracking_flutter/presentation/extensions/async_value_extension.dart';
+import 'package:invoice_tracking_flutter/presentation/extensions/ui_extension.dart';
 
 final employeeControllerProvider =
     StateNotifierProvider<EmployeeController, AsyncValue<List<EmployeeEntity>>>(
@@ -39,6 +40,7 @@ class EmployeeController
 
   Future<void> createEmployee(BuildContext context,
       {required Map<String, dynamic> data}) async {
+    state = const AsyncLoading();
     final result = await remoteDataSource.createEmployee(formData: data);
     result.when(
       success: (data) {

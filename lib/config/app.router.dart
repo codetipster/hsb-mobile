@@ -22,6 +22,7 @@ final onBoardStateListenable = ValueNotifier<bool>(false);
 class RouteName {
   static const String initial = 'layout';
   static const String onBoard = 'on_board';
+  static const String auth = 'auth';
   static const String signIn = '/sign_in';
 
   static const String invoices = 'invoices';
@@ -32,12 +33,19 @@ class RouteName {
   static const String profile = 'profile';
   static const String notification = 'notification';
   static const String language = 'language';
+  static const String otpScreen = 'otp';
+  static const String forgetPasswordScreen = 'forget_password';
+  static const String createPasswordScreen = 'create_password';
 }
 
 class RoutePath {
   static const String initial = '/layout';
   static const String onBoard = '/on_board';
-  static const String signIn = '/sign_in';
+  static const String auth = '/auth';
+  static const String signIn = 'sign_in';
+  static const String otpScreen = 'otp';
+  static const String forgetPasswordScreen = 'forget_password';
+  static const String createPasswordScreen = 'create_password';
 
   static const String invoices = 'invoices';
   static const String reports = 'reports';
@@ -47,13 +55,6 @@ class RoutePath {
   static const String profile = 'profile';
   static const String notification = 'notification';
   static const String language = 'language';
-//
-  static const String forgetPasswordScreen = '/forget_password';
-  static const String createPasswordScreen = '/create_password';
-  static const String otpScreen = '/otp';
-  static const String settingScreen = '/setting';
-  static const String profileScreen = '/profile';
-  static const String addEmployeeScreen = '/add_mployee';
 }
 
 final router = GoRouter(
@@ -110,10 +111,32 @@ final router = GoRouter(
             ),
           ]),
       GoRoute(
-        name: RouteName.signIn,
-        path: RoutePath.signIn,
-        builder: (context, state) => const SignInScreen(),
-      ),
+          name: RouteName.auth,
+          path: RoutePath.auth,
+          builder: (context, state) => const SignInScreen(),
+          routes: [
+            GoRoute(
+              name: RouteName.signIn,
+              path: RoutePath.signIn,
+              builder: (context, state) => const SignInScreen(),
+            ),
+            GoRoute(
+              name: RouteName.forgetPasswordScreen,
+              path: RoutePath.forgetPasswordScreen,
+              builder: (context, state) => ForgetPasswordScreen(),
+            ),
+            GoRoute(
+              name: RouteName.otpScreen,
+              path: RoutePath.otpScreen,
+              builder: (context, state) => OtpScreen(),
+            ),
+            GoRoute(
+              name: RouteName.createPasswordScreen,
+              path: RoutePath.createPasswordScreen,
+              builder: (context, state) => CreatePasswordScreen(),
+            ),
+          ]),
+
       GoRoute(
         name: RouteName.onBoard,
         path: RoutePath.onBoard,
@@ -129,7 +152,8 @@ final router = GoRouter(
         return RoutePath.initial;
       }
       if (!isSignedIn && !showOnBoard) return RoutePath.onBoard;
-      if (!isSignedIn && showOnBoard) return RoutePath.signIn;
+      if (!isSignedIn && !state.location.contains(RoutePath.auth))
+        return RoutePath.auth;
 
       return null;
     },

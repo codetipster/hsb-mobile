@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -13,12 +14,13 @@ import 'package:invoice_tracking_flutter/data/entities/invoice.entity.dart';
 import 'package:invoice_tracking_flutter/data/entities/report.entity.dart';
 import 'package:invoice_tracking_flutter/data/entities/user.entity.dart';
 
-
 const String SIGNIN = '/client/login';
 const String PROFILE = '/client/profile';
 const String INVOICES = '/client/invoices';
 const String REPORTS = '/client/reports';
 const String EMPLOYEES = '/client/employees';
+const String SENDOTP = '/client/send-otp';
+const String UPDATEPASSWORD = '/client/update-password';
 
 final remoteDataSourceProvider = Provider<RemoteDataSource>(
   (ref) => RemoteDataSource(
@@ -50,12 +52,33 @@ class RemoteDataSource {
     });
   }
 
+  Future<Result<dynamic>> updatePassword(
+      {required Map<String, dynamic> data}) async {
+    return Result.guardFuture(() async {
+      // Authorization
+      dioClient.options = dioClient.options
+          .copyWith(headers: {'Authorization': localDataSource.authToken});
+      await dioClient.put(UPDATEPASSWORD, data: data);
+    });
+  }
+
+  Future<Result<dynamic>> sendOTP(
+      {required Map<String, dynamic> formData}) async {
+    return Result.guardFuture(() async {
+      final result = await dioClient.post(SENDOTP, data: formData);
+      // user data
+      final data = json.decode(result.data) as Map<String, dynamic>;
+      await localDataSource.storeUser(user: json.encode(data['data']));
+      await localDataSource.storeAuthToken(authToken: data['data']['token']);
+    });
+  }
+
   Future<Result<UserEntity>> uploadProfile(
       {required Map<String, dynamic> formData, required File? image}) async {
     // Authorization
     dioClient.options = dioClient.options
         .copyWith(headers: {'Authorization': localDataSource.authToken});
-    
+
     return Result.guardFuture(() async {
       if (image != null) {
         FormData data = FormData.fromMap({

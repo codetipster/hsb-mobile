@@ -88,6 +88,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
   }
 
   Widget _buildUploadCardSection(BuildContext context) {
+    final invoiceController = ref.watch(invoiceControllerProvider);
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -97,12 +98,19 @@ class HomeScreenState extends ConsumerState<HomeScreen>
       margin: EdgeInsets.only(top: 2.h),
       padding: EdgeInsets.symmetric(vertical: kDefaultPaddingV),
       child: InkWell(
-        onTap: () async {
-          showBottomImageSelector(context, ref);
-        },
+        onTap: invoiceController.maybeWhen(
+          orElse: () => null,
+          data: (data) => () async {
+            showBottomImageSelector(context, ref);
+          },
+        ),
         child: Column(
           children: [
-            Image.asset(AppConst.addIcon),
+            invoiceController.maybeWhen(
+              orElse: () =>
+                  Text(context.tr.loading, style: context.textTheme.subtitle2),
+              data: (data) => Image.asset(AppConst.addIcon),
+            ),
             kDefaultSpaceV,
             Text(context.tr.uploadInvoice, style: context.textTheme.headline6),
             SizedBox(height: 1.h),
@@ -223,7 +231,7 @@ class HomeScreenState extends ConsumerState<HomeScreen>
               Expanded(
                   child: employeeController.when(
                 data: (data) => ListView.builder(
-                  itemCount: 5,
+                  itemCount: data.length,
                   itemBuilder: (context, index) =>
                       EmployeeItemCard(data: data[index]),
                 ),

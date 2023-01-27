@@ -26,6 +26,7 @@ abstract class UserEntity with _$UserEntity {
     required String mobileNumber,
     required String status,
     @JsonKey(includeIfNull: false) String? taxId,
+    @JsonKey(includeIfNull: false) String? otp,
     @JsonKey(includeIfNull: false) String? notes,
     @JsonKey(includeIfNull: false) DateTime? createdAt,
     @JsonKey(includeIfNull: false) DateTime? updatedAt,

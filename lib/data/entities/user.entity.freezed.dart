@@ -40,6 +40,8 @@ mixin _$UserEntity {
   @JsonKey(includeIfNull: false)
   String? get taxId => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
+  String? get otp => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   String? get notes => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -77,6 +79,7 @@ abstract class $UserEntityCopyWith<$Res> {
       String mobileNumber,
       String status,
       @JsonKey(includeIfNull: false) String? taxId,
+      @JsonKey(includeIfNull: false) String? otp,
       @JsonKey(includeIfNull: false) String? notes,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
       @JsonKey(includeIfNull: false) DateTime? updatedAt});
@@ -113,6 +116,7 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
     Object? mobileNumber = null,
     Object? status = null,
     Object? taxId = freezed,
+    Object? otp = freezed,
     Object? notes = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -190,6 +194,10 @@ class _$UserEntityCopyWithImpl<$Res, $Val extends UserEntity>
           ? _value.taxId
           : taxId // ignore: cast_nullable_to_non_nullable
               as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -233,6 +241,7 @@ abstract class _$$_UserEntityCopyWith<$Res>
       String mobileNumber,
       String status,
       @JsonKey(includeIfNull: false) String? taxId,
+      @JsonKey(includeIfNull: false) String? otp,
       @JsonKey(includeIfNull: false) String? notes,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
       @JsonKey(includeIfNull: false) DateTime? updatedAt});
@@ -267,6 +276,7 @@ class __$$_UserEntityCopyWithImpl<$Res>
     Object? mobileNumber = null,
     Object? status = null,
     Object? taxId = freezed,
+    Object? otp = freezed,
     Object? notes = freezed,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
@@ -344,6 +354,10 @@ class __$$_UserEntityCopyWithImpl<$Res>
           ? _value.taxId
           : taxId // ignore: cast_nullable_to_non_nullable
               as String?,
+      otp: freezed == otp
+          ? _value.otp
+          : otp // ignore: cast_nullable_to_non_nullable
+              as String?,
       notes: freezed == notes
           ? _value.notes
           : notes // ignore: cast_nullable_to_non_nullable
@@ -382,6 +396,7 @@ class _$_UserEntity implements _UserEntity {
       required this.mobileNumber,
       required this.status,
       @JsonKey(includeIfNull: false) this.taxId,
+      @JsonKey(includeIfNull: false) this.otp,
       @JsonKey(includeIfNull: false) this.notes,
       @JsonKey(includeIfNull: false) this.createdAt,
       @JsonKey(includeIfNull: false) this.updatedAt});
@@ -428,6 +443,9 @@ class _$_UserEntity implements _UserEntity {
   final String? taxId;
   @override
   @JsonKey(includeIfNull: false)
+  final String? otp;
+  @override
+  @JsonKey(includeIfNull: false)
   final String? notes;
   @override
   @JsonKey(includeIfNull: false)
@@ -438,7 +456,7 @@ class _$_UserEntity implements _UserEntity {
 
   @override
   String toString() {
-    return 'UserEntity(id: $id, accountantId: $accountantId, email: $email, firstName: $firstName, lastName: $lastName, image: $image, user: $user, legalNumber: $legalNumber, homeNumber: $homeNumber, city: $city, zipCode: $zipCode, jobType: $jobType, companyType: $companyType, bankName: $bankName, iban: $iban, mobileNumber: $mobileNumber, status: $status, taxId: $taxId, notes: $notes, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'UserEntity(id: $id, accountantId: $accountantId, email: $email, firstName: $firstName, lastName: $lastName, image: $image, user: $user, legalNumber: $legalNumber, homeNumber: $homeNumber, city: $city, zipCode: $zipCode, jobType: $jobType, companyType: $companyType, bankName: $bankName, iban: $iban, mobileNumber: $mobileNumber, status: $status, taxId: $taxId, otp: $otp, notes: $notes, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -472,6 +490,7 @@ class _$_UserEntity implements _UserEntity {
                 other.mobileNumber == mobileNumber) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.taxId, taxId) || other.taxId == taxId) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -501,6 +520,7 @@ class _$_UserEntity implements _UserEntity {
         mobileNumber,
         status,
         taxId,
+        otp,
         notes,
         createdAt,
         updatedAt
@@ -540,6 +560,7 @@ abstract class _UserEntity implements UserEntity {
           required final String mobileNumber,
           required final String status,
           @JsonKey(includeIfNull: false) final String? taxId,
+          @JsonKey(includeIfNull: false) final String? otp,
           @JsonKey(includeIfNull: false) final String? notes,
           @JsonKey(includeIfNull: false) final DateTime? createdAt,
           @JsonKey(includeIfNull: false) final DateTime? updatedAt}) =
@@ -585,6 +606,9 @@ abstract class _UserEntity implements UserEntity {
   @override
   @JsonKey(includeIfNull: false)
   String? get taxId;
+  @override
+  @JsonKey(includeIfNull: false)
+  String? get otp;
   @override
   @JsonKey(includeIfNull: false)
   String? get notes;
